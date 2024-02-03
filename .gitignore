@@ -1,0 +1,11 @@
+
+.idea
+*/target
+*/target/*
+kafkaproducer/kafkaproducer.iml
+kafkaproducer/target/classes/cs523/kafkaproducer/App.class
+kafkaproducer/target/test-classes/cs523/kafkaproducer/AppTest.class
+*.class
+*.iml
+*.class
+.DS_Store
