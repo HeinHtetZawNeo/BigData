@@ -50,7 +50,7 @@ public class AlphaVantageKafkaProducer {
 
     private static String fetchDataFromAlphaVantage(String apiKey, String symbol, String interval) throws Exception {
         String apiUrl = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="
-                + symbol + "&interval=" + interval + "&outputsize=full&apikey=" + apiKey;
+                + symbol + "&outputsize=full&apikey=" + apiKey;
         URL url = new URL(apiUrl);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
