@@ -8,7 +8,6 @@ import org.apache.spark.streaming.api.java.JavaInputDStream;
 import org.apache.spark.streaming.api.java.JavaStreamingContext;
 import org.apache.spark.streaming.kafka.KafkaUtils;
 import kafka.serializer.StringDecoder;
-import scala.Tuple2;
 
 import java.io.IOException;
 import java.util.*;
@@ -28,8 +27,8 @@ public class KafkaToHDFSSparkStreaming {
         Set<String> topics = new HashSet<>();
         topics.add("your_kafka_topic"); // Replace with your Kafka topic
 
-        // Create a Kafka input stream
-        JavaInputDStream<Tuple2<String, String>> stream = KafkaUtils.createDirectStream(
+        // Create a Kafka input stream with KafkaUtils.createDirectStream
+        JavaInputDStream<String> kafkaStream = KafkaUtils.createDirectStream(
                 streamingContext,
                 String.class,
                 String.class,
@@ -37,13 +36,11 @@ public class KafkaToHDFSSparkStreaming {
                 StringDecoder.class,
                 kafkaParams,
                 topics
-        );
+        ).map(Tuple2::_2);
 
         // Inside the foreachRDD block, process JSON data and write to HDFS
-        stream.foreachRDD(rdd -> {
-            rdd.foreach(record -> {
-                String jsonMessage = record._2(); // Extract the JSON message
-
+        kafkaStream.foreachRDD(rdd -> {
+            rdd.foreach(jsonMessage -> {
                 try {
                     // Create an HDFS configuration
                     Configuration conf = new Configuration();
