@@ -1,1 +1,10 @@
-org.apache.zeppelin.interpreter.InterpreterException: java.io.IOException: Fail to detect scala version, the reason is:Multiple spark assembly file found in SPARK_HOME: /usr/lib/spark at org.apache.zeppelin.interpreter.remote.RemoteInterpreter.open(RemoteInterpreter.java:129) at org.apache.zeppelin.interpreter.remote.RemoteInterpreter.getFormType(RemoteInterpreter.java:271) at org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:438) at org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:69) at org.apache.zeppelin.scheduler.Job.run(Job.java:172) at org.apache.zeppelin.scheduler.AbstractScheduler.runJob(AbstractScheduler.java:132) at org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:182) at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) at java.util.concurrent.FutureTask.run(FutureTask.java:266) at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) at java.lang.Thread.run(Thread.java:748)
+%spark
+import org.apache.spark.{SparkConf,SparkContext}
+import org.apache.spark.sql.hive.HiveContext
+
+val conf = new SparkConf().setAppName("My Final Project").set("spark.driver.allowMultipleContexts","true")
+val sc = new SparkContext(conf)
+val sqlContext = new HiveContext(sc)
+
+val mytable = sqlContext.sql("SELECT * FROM mytable")
+mytable.show()
