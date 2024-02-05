@@ -1,10 +1,8 @@
-%spark
-import org.apache.spark.{SparkConf,SparkContext}
-import org.apache.spark.sql.hive.HiveContext
-
-val conf = new SparkConf().setAppName("My Final Project").set("spark.driver.allowMultipleContexts","true")
-val sc = new SparkContext(conf)
-val sqlContext = new HiveContext(sc)
-
-val mytable = sqlContext.sql("SELECT * FROM mytable")
-mytable.show()
+F0UX5Z8LRINHDYS6
+WPTVWCW0JSQTY5H
+NWQ3EODK9OIF8KFX
+2BQ4M9WFPKL0TOLH
+TI28IVZNOIWYI6GZ
+9D3TLSRVIE9DIDAD
+SEMR2IP1KP893WRB
+7KUZSDJAQ3GX6WCK
