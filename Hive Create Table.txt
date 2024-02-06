@@ -1,9 +1,0 @@
-
-Create table Commodities(
-    com_type STRING,
-    com_date DATE,
-    price FLOAT)
-    ROW FORMAT DELIMITED
-    FIELDS TERMINATED BY ','
-    STORED AS TEXTFILE
-    LOCATION '/user/cloudera/project';
