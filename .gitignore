@@ -9,3 +9,4 @@ kafkaproducer/target/test-classes/cs523/kafkaproducer/AppTest.class
 *.iml
 *.class
 .DS_Store
+kafkaproducer/target/classes/cs523/kafkaproducer/App.class
