@@ -8,4 +8,5 @@ with serdeproperties(
 "separatorChar" = ",", 
 "quoteChar"="\"" 
 ) 
-location '/user/cloudera/project' 
+location '/user/cloudera/project'
+TBLPROPERTIES ("skip.header.line.count"="1");
