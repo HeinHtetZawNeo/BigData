@@ -25,7 +25,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>cs523.sparkStreaming.AlphaVantageKafkaProducer</mainClass>
+                            <mainClass>cs523.sparkStreamingConsumer.KafkaToHDFSSparkStreaming</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
