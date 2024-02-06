@@ -1,0 +1,11 @@
+create external table commodities( 
+Com_Type string, 
+Price_Date date, 
+Price float 
+) 
+row format serde 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
+with serdeproperties( 
+"separatorChar" = ",", 
+"quoteChar"="\"" 
+) 
+location '/user/cloudera/project' 
