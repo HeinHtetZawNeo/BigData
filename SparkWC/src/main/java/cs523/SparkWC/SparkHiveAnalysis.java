@@ -26,7 +26,7 @@ public class SparkHiveAnalysis {
 
     
             // Read the "employees" table into a DataFrame
-        	DataFrame top10EmployeesDF = hiveContext.sql("SELECT * FROM default.employee_data LIMIT 10");
+        	DataFrame top10EmployeesDF = hiveContext.sql("SELECT * FROM default.commodities ");
         	top10EmployeesDF.show();
 
 
